@@ -49,6 +49,10 @@ then
 		    LDFLAGS="$LDFLAGS -mno-cygwin"
 		    ;;
 	    esac
+        ;;
+    *-*-os2*)
+        LDFLAGS="$LDFLAGS -no-undefined -Zbin-files"
+        ;;
     esac
 
 dnl    case "$host" in
