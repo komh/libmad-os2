@@ -50,9 +50,6 @@ then
 		    ;;
 	    esac
         ;;
-    *-*-os2*)
-        LDFLAGS="$LDFLAGS -no-undefined -Zbin-files"
-        ;;
     esac
 
 dnl    case "$host" in
@@ -69,6 +66,17 @@ dnl AC_LIBTOOL_WIN32_DLL
 AC_PROG_LIBTOOL
 
 AC_SUBST(LIBTOOL_DEPS)
+
+case "$host" in
+    *-*-os2*)
+	NO_UNDEFINED="-no-undefined"
+	;;
+    *)
+	NO_UNDEFINED=
+	;;
+esac
+
+AC_SUBST(NO_UNDEFINED)
 
 dnl Compiler options.
 
